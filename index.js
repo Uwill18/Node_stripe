@@ -1,9 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+//get sent postman first
 
-const PK = "pk_test_51LxHexDte41dLHinwMjyrWV7fvq0hlLpBXMFLUrJPoAGaC8znUgsEYFeJtomtTr2uUqAA4B757RYFhvKKQA5KcBe00ilAzSQ7i";
-const SK = "sk_test_51LxHexDte41dLHinspvBfktxWH9CZLk7ntJxPtLxtmzPwiH55s4t3G6zGTK0ENIIt1LX7acmLjNp47nnHMjj513W00WdmGz2aO";
+const PK = "pk_test_51LxHexDte41dLHinwMjyrWV7fvq0hlLpBXMFLUrJPoAGaC8znUgsEYFeJtomtTr2uUqAA4B757RYFhvKKQA5KcBe00ilAzSQ7i"
+const SK = "sk_test_51LxHexDte41dLHinspvBfktxWH9CZLk7ntJxPtLxtmzPwiH55s4t3G6zGTK0ENIIt1LX7acmLjNp47nnHMjj513W00WdmGz2aO"
+//sk_test_51LxHexDte41dLHinspvBfktxWH9CZLk7ntJxPtLxtmzPwiH55s4t3G6zGTK0ENIIt1LX7acmLjNp47nnHMjj513W00WdmGz2aO
+
 const stripe = require('stripe')(SK);
 const app = express();
 
@@ -26,6 +29,7 @@ app.get('/', (req,res)=>{
 //app.put()
 //or review app.post methods
 
+//just post the info into postman, no request variables
 app.post('/payment',(req,res)=>{
     stripe.customers.create({
         email:req.body.stripeEmail,
